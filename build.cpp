@@ -1,7 +1,8 @@
 //
 // Created by Matt Perry 
-// This contains the source files for my soultion to the exaustive search for CS411 Hw2
-// 
+// This contains the source files for my solution to the exhaustive search for CS411 Hw2
+// build.cpp 
+// Last updated 9/28/20
 
 #include "build.h"
 // PRE: A vector containing 3 values for a start and end node and cost
@@ -24,9 +25,9 @@ int build(int , int , const std::vector<Bridge> & bridges){
 
     } 
     else {
-        std::vector<std::vector<Bridge>> all_subsets, legal_subsets;
+        std::vector<std::vector<Bridge>> all_subsets;
         generate_all_subsets(bridges, all_subsets);
-        return(generate_legal_bridge_sets(all_subsets, legal_subsets));
+        return(max_toll(all_subsets));
 
     }
 }
@@ -35,7 +36,7 @@ void generate_all_subsets(const std::vector<Bridge> & bridges, std::vector<std::
     std::vector<Bridge> subset;
     for(size_t index = 0; index < std::pow(2, bridges.size()); index++) {
         for(size_t i = 0; i < bridges.size(); i++) {
-            if(index & (1 << i))
+            if(index & (1u << i))
                 subset.push_back(bridges[i]);
         }
         all_subsets.push_back(subset);
@@ -43,7 +44,7 @@ void generate_all_subsets(const std::vector<Bridge> & bridges, std::vector<std::
     }
 }
 
-int generate_legal_bridge_sets(const std::vector<std::vector<Bridge>> & subsets, std::vector<std::vector<Bridge>> & legal){
+int max_toll(const std::vector<std::vector<Bridge>> & subsets){
     int max = 0;
     for(const auto & set : subsets) {
         int count = 0;
@@ -61,7 +62,6 @@ int generate_legal_bridge_sets(const std::vector<std::vector<Bridge>> & subsets,
         if( count > max){
             max = count;
         }
-        legal.push_back(set);
         end:;
 
     }

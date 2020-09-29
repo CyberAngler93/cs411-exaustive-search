@@ -1,9 +1,11 @@
 //
-// Created by Matt on 9/26/2020.
-//
+// Created by Matt Perry 
+// This contains the source files for my soultion to the exaustive search for CS411 Hw2
+// 
 
 #include "build.h"
-
+// PRE: A vector containing 3 values for a start and end node and cost
+// POST: This will return the value of the best toll to build for the bridges given.
 int build(int , int , const std::vector<Bridge> & bridges){
     if (bridges.empty()) {
         return 0;

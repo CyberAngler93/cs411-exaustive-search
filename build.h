@@ -1,6 +1,7 @@
 //
-// Created by Matt on 9/26/2020.
-//
+// Created by Matt Perry 
+// This contains the protypes for functions required for my soultion to the exaustive search for CS411 Hw2
+// 
 
 #ifndef CS411_HW2_BUILD_H
 #define CS411_HW2_BUILD_H

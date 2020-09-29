@@ -1,4 +1,4 @@
-# cs411-exaustive-search
+# cs411-exhaustive-search
 This is a soltuion to the bridge toll problem, utilizing exhaustive search.
 ## About
 This depends on a build function that has a couple helper functions
